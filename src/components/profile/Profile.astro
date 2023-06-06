@@ -61,7 +61,6 @@ const { memoTitle } = Astro.props;
     align-items: flex-start;
     padding: 0px;
     gap: 8px;
-    width: 343px;
     height: 101px;
     flex: none;
     order: 0;
@@ -71,7 +70,7 @@ const { memoTitle } = Astro.props;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 343px;
+    width: calc(100vw - 32px);
   }
   .profile-icon {
     width: 40px;
@@ -112,7 +111,7 @@ const { memoTitle } = Astro.props;
     justify-content: space-between;
     padding: 0px;
 
-    width: 343px;
+    width: calc(100vw - 32px);
     height: 30px;
 
     /* Inside layout */

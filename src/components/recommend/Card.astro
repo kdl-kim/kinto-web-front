@@ -1,0 +1,121 @@
+---
+import Icons from "../profile/Icons.astro";
+export interface Props {
+  memoTitle: string;
+}
+
+const { memoTitle } = Astro.props;
+---
+
+<div class="flex font">
+  <div class="group">
+    <h1>{memoTitle}</h1>
+    <div class="profile">
+      <div style="display:flex; gap:9px">
+        <img
+          class="profile-icon"
+          src="https://cdn.shopify.com/s/files/1/0576/1974/2872/articles/white-rabbit-running_1100x.jpg?v=1646132516"
+        />
+        <p class="profile-name">by とやまる子</p>
+      </div>
+    </div>
+    <p class="place">銀座ウエスト</p>
+    <div class="followers-group">
+      <div style="display:flex; gap:9px">
+        <Icons />
+        <p class="followers-number">32人がメモ</p>
+      </div>
+    </div>
+  </div>
+  <img
+    class="photo"
+    src="https://media.bakingo.com/sq-pineapple-cake0022pifr-AA_0.jpg"
+  />
+</div>
+
+<style>
+  h1 {
+    margin: 0;
+    /* Ja/Headline/H1-Bold */
+    font-family: "Hiragino Kaku Gothic ProN";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 136%;
+    color: #0d0d0d;
+  }
+  .font {
+    font-family: "Hiragino Kaku Gothic ProN";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 150%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.0024em;
+  }
+  .flex {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100vw;
+    padding: 16px;
+    border-bottom: 1px solid #dddddd;
+  }
+  .group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .profile-icon {
+    width: 40px;
+    height: 40px;
+    left: 0px;
+    top: 0px;
+    border-radius: 20px;
+  }
+  .profile-name {
+    color: #333333;
+  }
+  .place {
+    font-weight: 300 !important;
+    margin: 0;
+    color: #777775;
+  }
+  .followers-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px;
+    height: 30px;
+
+    /* Inside layout */
+
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+  }
+  .followers-number {
+    width: 65px;
+    height: 18px;
+    margin: 0;
+
+    color: #000000;
+  }
+  .photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+  }
+</style>

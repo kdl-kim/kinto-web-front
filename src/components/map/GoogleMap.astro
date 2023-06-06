@@ -9,11 +9,13 @@ const googleMapUrl = `https://maps.google.com/maps/api/js?key=${API_KEY}&v=beta&
 
 <!-- GoogleMapを表示するスクリプト -->
 <script>
+  import { memo } from "react";
+
   // 地図の初期化関数
   const initMap = () => {
     let map: google.maps.Map;
     // マップID
-    const MAP_ID = "5b00c200d3131e23";
+    const MAP_ID = "8ca0496f0627c66a";
     // Google Mapに表示する地点情報
     const myLatLng: google.maps.LatLngLiteral = {
       lat: 34.6945454,
@@ -32,9 +34,15 @@ const googleMapUrl = `https://maps.google.com/maps/api/js?key=${API_KEY}&v=beta&
       options
     );
     // カスタムマーカー
-    const memoTag = document.createElement("div");
-    memoTag.className = "customMarker";
-    memoTag.textContent = "三宮駅";
+    const memoTag = document.createElement("img");
+    memoTag.src = "public/marker.svg";
+
+    // マーカー表示
+    const markerView = new google.maps.marker.AdvancedMarkerElement({
+      map,
+      position: myLatLng,
+      content: memoTag,
+    });
   };
   declare global {
     interface Window {

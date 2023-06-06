@@ -1,0 +1,47 @@
+---
+import Card from "./Card.astro";
+
+export interface Props {
+  memoTitle: string;
+}
+
+const { memoTitle } = Astro.props;
+---
+
+<div class="title">
+  <h1 class="font">スポットの他のメモ</h1>
+  <a>すべて見る</a>
+</div>
+<Card memoTitle={memoTitle} />
+<Card memoTitle={memoTitle} />
+<Card memoTitle={memoTitle} />
+
+<style>
+  .font {
+    font-family: "Hiragino Kaku Gothic ProN";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.0024em;
+  }
+  a {
+    margin: 0;
+    color: #02af86;
+    font-size: 12px;
+  }
+  h1 {
+    font-weight: 600 !important;
+    margin: 0;
+  }
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100vw;
+    padding: 16px;
+  }
+</style>

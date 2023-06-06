@@ -5,8 +5,10 @@ body {
   height: 100%;
 }
 #map {
-  height: 500px;
+  margin-top: 20px;
+  height: 171px;
   width: 100%;
+  border-radius: 12px;
 }
 /* HTML marker styles */
 .customMarker {

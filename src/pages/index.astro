@@ -5,6 +5,7 @@ import Photos from "../components/photos/Photos.astro";
 import Url from "../components/url/Url.astro";
 import Tag from "../components/tag/Tag.astro";
 import Map from "../components/map/Map.astro";
+import Recommend from "../components/recommend/Recommend.astro";
 
 const memoTitleSample = "日本の定番ケーキの物語";
 const memoMemoSample =
@@ -21,6 +22,7 @@ const memoMapSample = "東京都日野市程久保7-1-1";
   <Url link={memoLinkSample} slot="url" />
   <Tag tag={memoTagSample} slot="tag" />
   <Map map={memoMapSample} slot="map" />
+  <Recommend memoTitle={memoTitleSample} slot="recommend" />
 </Layout>
 
 <style>
