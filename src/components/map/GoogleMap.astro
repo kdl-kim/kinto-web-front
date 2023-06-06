@@ -1,0 +1,48 @@
+---
+import "./map.css";
+const API_KEY = import.meta.env.API_KEY;
+const googleMapUrl = `https://maps.google.com/maps/api/js?key=${API_KEY}&v=beta&libraries=marker&language=ja&callback=initMap`;
+---
+
+<!-- Google MAPの埋め込み -->
+<div id="map"></div>
+
+<!-- GoogleMapを表示するスクリプト -->
+<script>
+  // 地図の初期化関数
+  const initMap = () => {
+    let map: google.maps.Map;
+    // マップID
+    const MAP_ID = "5b00c200d3131e23";
+    // Google Mapに表示する地点情報
+    const myLatLng: google.maps.LatLngLiteral = {
+      lat: 34.6945454,
+      lng: 135.1952558,
+    };
+    // 地図のプロパティ
+    const options = {
+      zoom: 15, //地図の縮尺値
+      center: myLatLng, //地図の中心座標
+      mapTypeId: "roadmap", //地図の種類
+      mapId: MAP_ID, // GCPにて作成したmap_ID（高度なマーカーを利用するために必要）
+    };
+    // 地図
+    map = new google.maps.Map(
+      document.getElementById("map") as HTMLElement,
+      options
+    );
+    // カスタムマーカー
+    const memoTag = document.createElement("div");
+    memoTag.className = "customMarker";
+    memoTag.textContent = "三宮駅";
+  };
+  declare global {
+    interface Window {
+      initMap: () => void;
+    }
+  }
+  window.initMap = initMap;
+</script>
+
+<!-- スクリプト実行 -->
+<script src={googleMapUrl} async defer></script>
