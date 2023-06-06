@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Profile from "../components/profile/Profile.astro";
+import Photos from "../components/photos/Photos.astro";
+import Url from "../components/url/Url.astro";
+import Tag from "../components/tag/Tag.astro";
+import Map from "../components/map/Map.astro";
+
+const memoTitleSample = "日本の定番ケーキの物語";
+const memoMemoSample =
+  "お菓子を前にすると、どうしてみんな笑顔になるんだろう。老いも若きも、男も女も、落ち込んでいても疲れていても、甘いものを口にすれば勇気りんりん、力が湧いてくる。お菓子には人を幸せにする不思議な力があるみたいだ。ハッピーだった子供の頃の思い出がよみがえる、懐かしい佇まいと変わらぬ味。何ともいえぬ安心感漂う定番ケーキ。決して威張らず主張せず、普段のまんま。そんな郷愁そそるケーキを買いに行こう。";
+const memoLinkSample = "https://brutus.jp/story_japanesecake/";
+const memoTagSample = "#グルメ";
+const memoMapSample = "東京都日野市程久保7-1-1";
+---
+
+<Layout title="Welcome to Astro.">
+  <Profile memoTitle={memoTitleSample} slot="profile" />
+  <Photos slot="photos" />
+  <p class="memo" slot="memo">{memoMemoSample}</p>
+  <Url link={memoLinkSample} slot="url" />
+  <Tag tag={memoTagSample} slot="tag" />
+  <Map map={memoMapSample} slot="map" />
+</Layout>
+
+<style>
+  .memo {
+    font-family: "Hiragino Kaku Gothic ProN";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.0024em;
+    color: #0d0d0d;
+    margin: 0;
+  }
+</style>

@@ -1,0 +1,97 @@
+---
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="layout">
+      <div class="area profile">
+        <slot name="profile" />
+      </div>
+      <div class="area photos"><slot name="photos" /></div>
+      <div class="area memo"><slot name="memo" /></div>
+      <div class="area url"><slot name="url" /></div>
+      <div class="area tag"><slot name="tag" /></div>
+      <div class="area map"><slot name="map" /></div>
+      <div class="area recommend"><slot name="recommend" /></div>
+    </div>
+    <slot />
+  </body>
+</html>
+<style is:global>
+  body {
+    margin: 0px;
+  }
+  :root {
+    position: relative;
+    width: 375px;
+    height: 1521px;
+
+    background: #f1f1f1;
+  }
+  .layout {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    gap: 10px;
+  }
+  .area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 16px;
+    box-sizing: border-box;
+    width: 375px;
+    background: #ffffff;
+    /* Inside layout */
+    flex: none;
+    flex-grow: 0;
+  }
+  .area.profile {
+    height: 181px;
+    gap: 10px;
+    order: 0;
+  }
+  .area.photos {
+    height: 130px;
+    order: 1;
+  }
+  .area.memo {
+    gap: 10px;
+    order: 2;
+  }
+  .area.memo::-webkit-scrollbar {
+    display: none;
+  }
+  .area.url {
+    padding: 0 !important;
+    height: 90px;
+    order: 3;
+  }
+  .area.tag {
+    padding: 0 !important;
+    height: 90px;
+    order: 4;
+  }
+  .area.map {
+    padding: 0 !important;
+    height: 330px;
+    order: 5;
+  }
+  .area.recommend {
+    height: 541px;
+    order: 6;
+  }
+</style>

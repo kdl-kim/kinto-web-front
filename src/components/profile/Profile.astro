@@ -1,0 +1,155 @@
+---
+import Icons from "./Icons.astro";
+export interface Props {
+  memoTitle: string;
+}
+
+const { memoTitle } = Astro.props;
+---
+
+<div class="group font">
+  <h1>{memoTitle}</h1>
+  <div class="profile">
+    <div style="display:flex; gap:9px">
+      <img
+        class="profile-icon"
+        src="https://cdn.shopify.com/s/files/1/0576/1974/2872/articles/white-rabbit-running_1100x.jpg?v=1646132516"
+      />
+      <p class="profile-name">by とやまる子</p>
+    </div>
+    <button class="profile-button font">プロフィールを見る</button>
+  </div>
+  <p class="update-date">更新日 2021/12/24</p>
+  <div class="followers-group">
+    <div style="display:flex; gap:9px">
+      <Icons />
+      <p class="followers-number">32人がメモ</p>
+    </div>
+    <button class="follow-button font">
+      <img src="public/search-plus.svg" width="14px" height="14px" />
+      ♥ お気に入りに保存する
+    </button>
+  </div>
+</div>
+
+<style>
+  h1 {
+    margin: 0;
+    /* Ja/Headline/H1-Bold */
+    font-family: "Hiragino Kaku Gothic ProN";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 136%;
+    color: #0d0d0d;
+  }
+  .font {
+    font-family: "Hiragino Kaku Gothic ProN";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 150%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.0024em;
+  }
+  .group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 343px;
+    height: 101px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  .profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 343px;
+  }
+  .profile-icon {
+    width: 40px;
+    height: 40px;
+    left: 0px;
+    top: 0px;
+    border-radius: 20px;
+  }
+  .profile-name {
+    color: #333333;
+  }
+  .profile-button {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 12px;
+    gap: 10px;
+    height: 26px;
+    background: #ffffff;
+    border: 1px solid #02af86;
+    border-radius: 4px;
+    color: #02af86;
+  }
+  .profile-button:hover {
+    opacity: 0.6;
+  }
+  .update-date {
+    font-weight: 300 !important;
+    margin: 0;
+    color: #777775;
+  }
+  .followers-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px;
+
+    width: 343px;
+    height: 30px;
+
+    /* Inside layout */
+
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+  }
+  .followers-number {
+    width: 65px;
+    height: 18px;
+    margin: 0;
+
+    color: #000000;
+  }
+  .follow-button {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 6px 12px;
+    gap: 2px;
+
+    width: 178px;
+    height: 30px;
+
+    background: #ffffff;
+
+    /* Light/Primary/500 */
+    border: 1px solid #02af86;
+    border-radius: 4px;
+
+    /* Light/Primary/500 */
+    color: #02af86;
+  }
+  .follow-button:hover {
+    opacity: 0.6;
+  }
+</style>
